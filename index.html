@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <title>Etos Protocol | Reserva Ética & Fundo Comunitário</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #d1d5db; overflow-x: hidden; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .gradient-text { background: linear-gradient(90deg, #10b981, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .border-glow { border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 0 15px rgba(16, 185, 129, 0.1); }
+        details summary::-webkit-details-marker { display: none; }
+        .img-logo { object-fit: cover; border-radius: 9999px; }
+
+        /* --- NOVAS ANIMAÇÕES --- */
+
+        /* 1. Animação de Pulso (Geração de Valor) */
+        @keyframes valuePulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        .animate-pulse-slow {
+            animation: valuePulse 3s infinite cubic-bezier(0.66, 0, 0, 1);
+        }
+
+        /* 2. Animação de Aurora de Fundo (Crescimento Contínuo) */
+        .background-aurora {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background: radial-gradient(circle at 50% 100%, rgba(16, 185, 129, 0.1), transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.05), transparent 40%);
+            animation: auroraMove 20s infinite alternate ease-in-out;
+            opacity: 0.6;
+        }
+        @keyframes auroraMove {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-10%) scale(1.1); }
+        }
+
+        /* Efeito sutil de brilho constante no card do cofre */
+        .treasury-glow {
+            animation: glowShift 5s infinite alternate;
+        }
+        @keyframes glowShift {
+            0% { border-color: rgba(16, 185, 129, 0.3); box-shadow: 0 0 20px rgba(16, 185, 129, 0.1) inset; }
+            100% { border-color: rgba(6, 182, 212, 0.4); box-shadow: 0 0 40px rgba(6, 182, 212, 0.15) inset; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-aurora"></div>
+
+    <nav class="fixed w-full z-50 glass border-b border-white/10 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-emerald-500 rounded-full animate-pulse-slow opacity-30"></div>
+                    <img src="logo.png" alt="Etos Logo" class="w-9 h-9 img-logo relative z-10">
+                </div>
+                <span class="text-white font-bold tracking-tighter text-xl uppercase">Etos</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest font-semibold">
+                <a href="#manifesto" class="hover:text-emerald-400 transition">Manifesto</a>
+                <a href="#dashboard" class="hover:text-emerald-400 transition">Dashboard</a>
+                <a href="#roadmap" class="hover:text-emerald-400 transition">Roadmap</a>
+                <a href="#faq" class="hover:text-emerald-400 transition">FAQ</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <select class="bg-transparent text-[10px] border border-white/20 rounded px-2 py-1 outline-none uppercase font-bold text-gray-400">
+                    <option class="text-black">PT-BR</option>
+                    <option class="text-black">EN-US</option>
+                </select>
+                <a href="LINK_DO_SEU_TELEGRAM" target="_blank" class="bg-white text-black px-5 py-2 rounded-full text-[10px] font-extrabold hover:bg-emerald-500 transition tracking-tighter">COMUNIDADE</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-48 pb-24 px-6 relative">
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <h1 class="text-6xl md:text-8xl font-extrabold text-white mb-8 tracking-tighter leading-[0.9]">
+                Building the <br><span class="gradient-text">ETOS Reserve</span>.
+            </h1>
+            <p class="text-xl text-gray-500 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+                Uma reserva de valor comunitária e transparente. Construída em conjunto, lastreada em ativos reais e protegida por contratos inteligentes na rede Polygon.
+            </p>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-16">
+                <a href="whitepaper-etos.pdf" download class="w-full md:w-auto px-10 py-5 rounded-2xl font-bold text-black bg-emerald-500 hover:bg-emerald-400 transition flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:shadow-[0_0_50px_rgba(16,185,129,0.6)] relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    <span class="relative z-10">WHITEPAPER (PDF)</span>
+                </a>
+                <div class="text-gray-600 text-sm uppercase tracking-widest font-bold">
+                    🚀 Início: <span class="text-white">Q1 2026</span>
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/20 rounded-full blur-[120px] -z-0 pointer-events-none"></div>
+    </section>
+
+    <section id="manifesto" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass p-10 md:p-16 rounded-[40px] border-glow relative">
+                <span class="text-emerald-400 font-bold tracking-widest text-xs uppercase mb-8 block">Manifesto Etos</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-10 leading-tight">Segurança real em um <br>mercado de incertezas.</h2>
+                
+                <div class="space-y-8 text-gray-400 text-lg leading-relaxed font-light">
+                    <p>
+                        O mercado cripto tornou-se um ecossistema hostil. Entre a volatilidade extrema e a invasão de <span class="text-white font-semibold">scams e robôs predatórios</span>, o investidor comum perdeu o seu porto seguro. A maioria dos projetos hoje nasce para drenar liquidez e desaparecer em dias.
+                    </p>
+                    <p>
+                        A <span class="text-emerald-400 font-semibold italic text-xl">Etos (ETOS)</span> nasceu da indignação e de um objetivo claro: provar que a consistência vence o hype. Não acreditamos em enriquecimento da noite para o dia. Acreditamos na <span class="text-white font-medium">matemática, na transparência e no tempo</span>.
+                    </p>
+                    <p>
+                       O símbolo do nosso compromisso é o <span class="text-white font-bold underline decoration-emerald-500">crescimento orgânico</span>.No Etos, cada transação constrói uma reserva real em <span class="text-white font-bold tracking-tight uppercase">Bitcoin (WBTC)</span>, criando um cofre comunitário auditável.
+                    </p>
+                    <p>
+                        Se você busca um cassino, este não é o seu lugar. Se busca uma reserva de valor ética e segura para <span class="text-cyan-400 font-bold">2026 e além</span>, seja bem-vindo ao protocolo.
+                    </p>
+                </div>
+
+                <div class="mt-12 flex items-center space-x-4 border-t border-white/10 pt-8">
+                    <img src="logo.png" alt="Fundador" class="w-12 h-12 img-logo border border-emerald-500/50">
+                    <div>
+                        <p class="text-white font-bold leading-none">Fundador Etos</p>
+                        <p class="text-[10px] text-gray-500 mt-1 uppercase tracking-widest font-bold">Gestão & Transparência</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dashboard" class="py-32 px-6 relative">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl font-bold text-white mb-2">Protocol Metrics</h2>
+                <p class="text-gray-500 uppercase text-[10px] tracking-[0.4em] font-bold">Auditáveis em Tempo Real via Blockchain</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="glass p-8 rounded-3xl">
+                    <p class="text-[10px] text-gray-400 uppercase font-bold mb-3 tracking-widest">Total Supply</p>
+                    <h3 class="text-3xl font-bold text-white">1.000.000.000</h3>
+                </div>
+                
+                <div class="glass p-8 rounded-3xl border-l-4 treasury-glow relative overflow-hidden leading-tight">
+                    <div class="absolute top-0 right-0 p-4 opacity-20">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <p class="text-[10px] text-emerald-400 uppercase font-black mb-3 tracking-widest">Cofre (WBTC)</p>
+                    <h3 class="text-4xl font-black text-white tracking-tighter">0.00000000</h3>
+                    <p class="text-[10px] text-gray-500 mt-2">Lastro em Crescimento</p>
+                </div>
+
+                <div class="glass p-8 rounded-3xl">
+                    <p class="text-[10px] text-gray-400 uppercase font-bold mb-3 tracking-widest">Taxas Acumuladas</p>
+                    <h3 class="text-3xl font-bold text-white tracking-tighter">R$ 0,00</h3>
+                </div>
+                <div class="glass p-8 rounded-3xl">
+                    <p class="text-[10px] text-gray-400 uppercase font-bold mb-3 tracking-widest">Holders Ativos</p>
+                    <h3 class="text-3xl font-bold text-white">1</h3>
+                </div>
+            </div>
+        </div>
+         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-cyan-500/10 rounded-full blur-[100px] -z-0 pointer-events-none"></div>
+    </section>
+
+    <section id="roadmap" class="py-24 px-6 bg-black/40">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-white mb-20 text-center tracking-tighter underline decoration-emerald-500 underline-offset-8">A Jornada Etos</h2>
+            <div class="space-y-16">
+                <div class="flex gap-10">
+                    <div class="flex flex-col items-center relative">
+                         <div class="absolute inset-0 bg-emerald-500 rounded-full animate-pulse-slow opacity-40"></div>
+                        <img src="logo.png" class="w-10 h-10 img-logo border-2 border-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)] relative z-10">
+                        <div class="w-0.5 h-full bg-emerald-500/20 mt-2"></div>
+                    </div>
+                    <div class="pb-4">
+                        <span class="text-emerald-500 font-black text-xs uppercase tracking-widest mb-2 block">2025 Q1</span>
+                        <h4 class="text-white font-bold text-xl mb-2 italic">Fundação do Protocolo</h4>
+                        <p class="text-gray-500 leading-relaxed font-light">Lançamento do Manifesto, Whitepaper e formação da comunidade embrionária. Início da estruturação do portal de transparência.</p>
+                    </div>
+                </div>
+                
+                <div class="flex gap-10">
+                    <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full border border-emerald-500/30 flex items-center justify-center text-emerald-500 font-bold text-[10px]">Q3</div>
+                        <div class="w-0.5 h-full bg-emerald-500/20 mt-2"></div>
+                    </div>
+                    <div class="pb-4">
+                        <span class="text-emerald-500 font-black text-xs uppercase tracking-widest mb-2 block">2025 Q3</span>
+                        <h4 class="text-white font-bold text-xl mb-2 italic">Deploy & TestNet</h4>
+                        <p class="text-gray-500 leading-relaxed font-light">Contrato inteligente implantado na Polygon para auditoria pública. Período de validação das travas de segurança e tesouraria.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-10 opacity-30">
+                    <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full border border-cyan-500/30 flex items-center justify-center text-cyan-500 font-bold text-[10px]">26</div>
+                    </div>
+                    <div class="pb-4">
+                        <span class="text-cyan-500 font-black text-xs uppercase tracking-widest mb-2 block font-medium">2026 Q1</span>
+                        <h4 class="text-white font-bold text-xl mb-2 italic">Genesis Liquidity</h4>
+                        <p class="text-gray-500 leading-relaxed font-light">Início das negociações via QuickSwap. Ativação oficial do acúmulo automatizado de WBTC no cofre de reserva.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 relative">
+        <div class="max-w-4xl mx-auto glass p-16 rounded-[50px] border border-white/5 text-center relative overflow-hidden shadow-2xl z-10">
+            <div class="relative z-10">
+                <h2 class="text-4xl font-bold text-white mb-8 tracking-tighter">Construa o Futuro Conosco.</h2>
+                <p class="mb-10 text-gray-500 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+                    A Etos é um projeto de governança aberta. Participe do nosso grupo de fundadores, audite o roadmap e ajude a criar a reserva de valor mais segura do mercado.
+                </p>
+                <a href="LINK_DO_TELEGRAM" class="bg-white text-black px-12 py-5 rounded-full font-black hover:bg-emerald-500 hover:scale-105 transition inline-block tracking-tight text-xs uppercase">Acessar Grupo de Fundadores</a>
+            </div>
+        </div>
+         <div class="absolute bottom-0 left-0 w-full h-full bg-emerald-500/10 rounded-full blur-[150px] animate-pulse-slow -z-0 pointer-events-none opacity-50"></div>
+    </section>
+
+    <section id="faq" class="py-24 px-6 bg-white/[0.01]">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl font-bold text-white mb-12 text-center uppercase tracking-widest">Dúvidas Frequentes</h2>
+            <div class="space-y-4">
+                <details class="glass p-6 rounded-3xl group">
+                    <summary class="font-bold text-white flex justify-between items-center cursor-pointer list-none">
+                        <span>Por que as negociações só começam em 2026?</span>
+                        <span class="text-emerald-500 transition-transform group-open:rotate-180 text-xl font-light">↓</span>
+                    </summary>
+                    <p class="text-sm text-gray-500 mt-4 leading-relaxed font-light">Para garantir que a comunidade seja formada por holders éticos e o contrato seja exaustivamente testado, evitando a volatilidade predatória de lançamentos precipitados.</p>
+                </details>
+                <details class="glass p-6 rounded-3xl group">
+                    <summary class="font-bold text-white flex justify-between items-center cursor-pointer list-none">
+                        <span>Como eu confiro o saldo do cofre?</span>
+                        <span class="text-emerald-500 transition-transform group-open:rotate-180 text-xl font-light">↓</span>
+                    </summary>
+                    <p class="text-sm text-gray-500 mt-4 leading-relaxed font-light">O endereço da Tesouraria será público após o deploy. Qualquer pessoa poderá verificar no Polygonscan a quantidade exata de WBTC acumulada através das taxas de negociação.</p>
+                </details>
+                <details class="glass p-6 rounded-3xl group">
+                    <summary class="font-bold text-white flex justify-between items-center cursor-pointer list-none">
+                        <span>O projeto é seguro contra golpes?</span>
+                        <span class="text-emerald-500 transition-transform group-open:rotate-180 text-xl font-light">↓</span>
+                    </summary>
+                    <p class="text-sm text-gray-500 mt-4 leading-relaxed font-light">Sim. O Etos possui travas de Max Wallet (1%) e o fundador mantém aportes mensais fixos, garantindo que o interesse do criador esteja 100% alinhado ao dos investidores de longo prazo.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center border-t border-white/5 bg-black/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-[10px] text-gray-600 uppercase tracking-[0.5em] mb-4 font-bold">Ethics as Infrastructure</p>
+            <p class="text-[10px] text-gray-700 font-medium tracking-tight">© 2025 ETOS PROTOCOL. DESENVOLVIDO PARA HOLDRES ÉTICOS.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
